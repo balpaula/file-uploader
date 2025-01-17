@@ -1,0 +1,95 @@
+@import '../../styles/utils.scss';
+
+.fileUploaderItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  &:not(.desktop) {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  &.default {
+    background-color: var(--mui-palette-Alert-infoStandardBg);
+  }
+
+  &.positive {
+    background-color: var(--mui-palette-Alert-successStandardBg);
+  }
+
+  &.disabled {
+    background-color: var(--mui-palette-Switch-defaultDisabledColor);
+  }
+
+  .prefixContainer {
+    gap: 0.5rem;
+
+    .prefix {
+      @include ellipsis();
+      width: 8rem;
+      max-width: 8rem;
+      min-width: 8rem;
+      color: inherit;
+    }
+
+    &:not(.desktop) {
+      order: 1;
+      flex: 0 1 auto;
+      max-width: calc(100% - 12.5rem);
+      min-width: 5rem;
+      box-sizing: border-box;
+
+      .prefix {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0rem;
+      }
+    }
+  }
+
+  .suffixContainer {
+    gap: 0.5rem;
+
+    .suffix {
+      min-width: 8rem;
+      text-align: center;
+      color: inherit;
+    }
+
+    &:not(.desktop) {
+      order: 2;
+      flex: 1 0 auto;
+      justify-content: flex-end;
+    }
+  }
+
+  .barContainer {
+    .linearProgress {
+      &.positive {
+        span {
+          background-color: var(--mui-palette-success-main);
+        }
+      }
+
+      &.disabled {
+        background-color: var(--mui-palette-grey-400);
+        span {
+          background-color: inherit;
+        }
+      }
+    }
+
+    &:not(.desktop) {
+      order: 3;
+      flex-basis: 100%;
+      padding-right: 2.5rem;
+    }
+  }
+}
